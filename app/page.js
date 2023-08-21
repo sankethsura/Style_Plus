@@ -3,6 +3,7 @@
 import { List } from "@phosphor-icons/react";
 import Image from "next/image";
 export default function Home() {
+  
   return (
     <main className="flex flex-col text-black">
       <nav className="w-full h-[80px] text-white bg-black/50  fixed flex items-center justify-between px-12 z-[10]">
