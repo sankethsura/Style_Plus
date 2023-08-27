@@ -3,7 +3,12 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const CarouselComponent = ({ images, numberOfSlides = 3, fixHeight ,noText}) => {
+const CarouselComponent = ({
+  images,
+  numberOfSlides = 3,
+  fixHeight,
+  noText,
+}) => {
   const settings = {
     arrows: false,
     dots: false,
@@ -48,12 +53,12 @@ const CarouselComponent = ({ images, numberOfSlides = 3, fixHeight ,noText}) => 
                   !fixHeight ? "h-full" : "h-48"
                 } object-cover rounded-md mb-4`}
               />
-              {!noText
-              ?<>
               <h2 className="text-lg font-semibold text-white">Image Title</h2>
-              <p className="text-gray-600 text-gray-400">Image Subtitle</p>
-              </>
-            :""}
+              {!noText ? (
+                <p className="text-gray-600 text-gray-400">Image Subtitle</p>
+              ) : (
+                ""
+              )}
             </div>
           </div>
         ))}

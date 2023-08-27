@@ -15,10 +15,10 @@ export default function HeroSection() {
           Get Quote for Free
         </button>
       </div>
-      <div className="absolute w-[50%] top-[50%] right-10 -translate-y-1/2 h-[50vh] hidden sm:flex">
+      <div className="absolute w-[50%] top-[50%] right-10 -translate-y-[40%] h-[50vh] hidden sm:flex">
         <CarouselComponent
           noText={true}
-          fixHeight={true}
+          fixHeight={300}
           numberOfSlides={3}
           images={[
             "https://images.unsplash.com/photo-1600210492493-0946911123ea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2874&q=80",
