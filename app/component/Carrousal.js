@@ -3,13 +3,15 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const CarouselComponent = ({ images }) => {
+const CarouselComponent = ({ images, numberOfSlides = 3, fixHeight ,noText}) => {
   const settings = {
-    dots: true,
+    arrows: false,
+    dots: false,
     infinite: true,
-    speed: 500,
-    slidesToShow: 3,
+    speed: 1000,
+    slidesToShow: numberOfSlides,
     slidesToScroll: 1,
+    autoplay: true,
     responsive: [
       {
         breakpoint: 1024,
@@ -29,51 +31,6 @@ const CarouselComponent = ({ images }) => {
     ],
   };
 
-  const CustomNextArrow = ({ onClick }) => (
-    <button
-      className="absolute top-1/2 right-0 transform translate-y-1/2 -translate-x-4 md:-translate-x-6 focus:outline-none"
-      onClick={onClick}
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        className="h-6 w-6 text-gray-600 hover:text-gray-800 transition duration-300"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M9 5l7 7-7 7"
-        />
-      </svg>
-    </button>
-  );
-
-  const CustomPrevArrow = ({ onClick }) => (
-    <button
-      className="absolute top-1/2 left-0 transform -translate-y-1/2 translate-x-4 md:translate-x-6 focus:outline-none"
-      onClick={onClick}
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        className="h-6 w-6 text-gray-600 hover:text-gray-800 transition duration-300"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M15 19l-7-7 7-7"
-        />
-      </svg>
-    </button>
-  );
-
-
   return (
     <div className="carousel-container relative mx-auto max-w-screen-lg px-4 py-8">
       <Slider
@@ -83,14 +40,20 @@ const CarouselComponent = ({ images }) => {
       >
         {images.map((image, index) => (
           <div key={index} className="w-full px-2">
-            <div className="bg-white p-4 rounded-lg shadow-lg">
+            <div className=" p-4 rounded-lg ">
               <img
                 src={image}
                 alt={`Image ${index}`}
-                className="w-full h-48 object-cover rounded-md mb-4"
+                className={`w-full ${
+                  !fixHeight ? "h-full" : "h-48"
+                } object-cover rounded-md mb-4`}
               />
-              <h2 className="text-lg font-semibold">Image Title</h2>
-              <p className="text-gray-600">Image Subtitle</p>
+              {!noText
+              ?<>
+              <h2 className="text-lg font-semibold text-white">Image Title</h2>
+              <p className="text-gray-600 text-gray-400">Image Subtitle</p>
+              </>
+            :""}
             </div>
           </div>
         ))}
