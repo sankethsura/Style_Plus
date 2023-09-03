@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 const CarouselComponent = ({
   images,
   numberOfSlides = 3,
-  fixHeight,
+  fixHeight = false,
   noText,
 }) => {
   const settings = {
@@ -50,12 +50,12 @@ const CarouselComponent = ({
                 src={image}
                 alt={`Image ${index}`}
                 className={`w-full ${
-                  !fixHeight ? "h-full" : "h-48"
+                  !fixHeight ? "h-48" : "h-48"
                 } object-cover rounded-md mb-4`}
               />
               <h2 className="text-lg font-semibold text-white">Image Title</h2>
               {!noText ? (
-                <p className="text-gray-600 text-gray-400">Image Subtitle</p>
+                <p className="text-gray-600 ">Image Subtitle</p>
               ) : (
                 ""
               )}
