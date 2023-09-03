@@ -2,6 +2,7 @@
 
 import { List } from "@phosphor-icons/react";
 import CarousalSection from "./layouts/CarousalSection";
+import ContactUs from "./layouts/ContactUs";
 import HeroSection from "./layouts/HeroSection";
 import WhatWeDo from "./layouts/WhatWeDo";
 
@@ -44,14 +45,17 @@ export default function Home() {
         <WhatWeDo />
       </section>
 
-      <section className="w-[100vw] h-[100vh] bg-yellow-100">
         {/* TESTIMONIALS */}
+      {/* <section className="w-[100vw] h-[100vh] bg-yellow-100">
         TESTIMONIALS
-      </section>
+      </section> */}
 
-      <section className="w-[100vw] h-[100vh] bg-red-100">
+      <section className="w-[100vw] flex flex-col gap-5 bg-[#36454F]/30">
         {/* CONTACT FORM */}
-        CONTACT US
+        <p className="font-medium text-xl text-white w-[80vw] mx-auto mt-10">
+          Contact Us
+        </p>
+        <ContactUs />
       </section>
 
       <footer className="w-[100vw] h-[20vh] bg-yellow-100">
