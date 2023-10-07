@@ -5,7 +5,7 @@ import ContactUs from "../layouts/ContactUs";
 
 export default function contact() {
   return (
-    <div>
+    <div className="bg-black w-full h-full">
        <p className="font-medium text-xl md:text-3xl text-white flex justify-center my-4 md:my-10">
           Contact Us
         </p>
