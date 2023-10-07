@@ -1,5 +1,6 @@
 import React from "react";
 import CarouselComponent from "../component/Carrousal";
+import Link from "next/link";
 
 export default function HeroSection() {
   return (
@@ -11,9 +12,11 @@ export default function HeroSection() {
         <p className="sm:text-lg text-sm text-center font-semibold ">
           INTERIORS AND RENOVATIONS
         </p>
-        <button className="border px-4 py-2 mt-4 border-white">
-          Get Quote for Free
-        </button>
+        <Link href="/contact-us">
+          <button className="border px-4 py-2 mt-4 border-white">
+            Get Quote for Free
+          </button>
+        </Link>
       </div>
       <div className="absolute w-[50%] top-[50%] right-10 -translate-y-[40%] h-[50vh] hidden sm:flex">
         <CarouselComponent

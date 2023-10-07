@@ -85,7 +85,14 @@ export default function Home() {
             <div className="flex items-center justify-center gap-5">
               <p>Gallery</p>
               <p>About</p>
-              <button className="px-4 py-2 border">Contact Us</button>
+              <button
+                className="px-4 py-2 border"
+                onClick={() => {
+                  router.push("/contact-us");
+                }}
+              >
+                Contact Us
+              </button>
             </div>
           </section>
         </nav>
