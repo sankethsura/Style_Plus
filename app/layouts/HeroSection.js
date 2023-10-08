@@ -14,7 +14,7 @@ export default function HeroSection() {
         </p>
         <Link href="/contact-us">
           <button className="border px-4 py-2 mt-4 border-white">
-            Get Quote for Free
+            Contact Us
           </button>
         </Link>
       </div>
