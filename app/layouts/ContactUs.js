@@ -2,9 +2,11 @@
 
 import React, { useState } from "react";
 import Button from "../UI/button";
+import Spinner from "../UI/spinner";
 import createToast from "../UI/toast";
 
 export default function ContactUs() {
+  const [loading, setLoading] = useState(false);
   const [info, setInfo] = useState({
     fullname: "",
     email: "",
@@ -13,6 +15,7 @@ export default function ContactUs() {
   });
 
   const handleSubmit = async (e) => {
+    setLoading(true);
     const res = await fetch("api/contact", {
       method: "POST",
       headers: {
@@ -25,12 +28,13 @@ export default function ContactUs() {
         phoneNumber: info?.phoneNumber,
       }),
     });
-    
+
     const { msg, success } = await res.json();
-    
+
     console.log(msg, success);
-    
+
     if (success) {
+      setLoading(false);
       createToast("Message sent successfully", "success");
       setInfo({
         fullname: "",
@@ -43,6 +47,14 @@ export default function ContactUs() {
 
   return (
     <section className=" w-[90vw] sm:w-[50vw] m-auto mb-10 text-black">
+      {loading ? (
+        <div className="flex justify-center items-center">
+          <Spinner />
+        </div>
+      ) : (
+        <></>
+      )}
+
       <form className="flex flex-col gap-3">
         <label className="text-white" for="name">
           Name
