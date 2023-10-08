@@ -1,6 +1,7 @@
 "use client";
 
 import { List } from "@phosphor-icons/react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import CarousalSection from "./layouts/CarousalSection";
@@ -83,16 +84,15 @@ export default function Home() {
           </section>
           <section className=" items-center justify-between hidden sm:flex ">
             <div className="flex items-center justify-center gap-5">
-              <p>Gallery</p>
-              <p>About</p>
-              <button
-                className="px-4 py-2 border"
-                onClick={() => {
-                  router.push("/contact-us");
-                }}
-              >
-                Contact Us
-              </button>
+              <Link href="/gallery">
+                <p>Gallery</p>
+              </Link>
+              <Link href="/about">
+                <p>About</p>
+              </Link>
+              <Link href="/contact-us">
+                <button className="px-4 py-2 border">Contact Us</button>
+              </Link>
             </div>
           </section>
         </nav>
