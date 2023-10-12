@@ -6,8 +6,11 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import CarousalSection from "./layouts/CarousalSection";
 import ContactUs from "./layouts/ContactUs";
+import CTA_1 from "./layouts/CTA_1";
 import HeroSection from "./layouts/HeroSection";
+import OurServises from "./layouts/ourServises";
 import WhatWeDo from "./layouts/WhatWeDo";
+import Title from "./UI/Title";
 
 export default function Home() {
   const [ham, setHam] = useState(false);
@@ -38,7 +41,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="flex flex-col text-black">
+    <main className="flex flex-col bg-white">
       {/*  HAMBURGER MENU */}
       {ham ? (
         <section className="w-[100vw] h-[100vh] z-[20] bg-black/70 fixed">
@@ -105,38 +108,32 @@ export default function Home() {
         />
         <HeroSection />
       </section>
+      <section className="w-[100vw] bg-black relative  overflow-x-hidden">
+        {/* SERVICES */}
 
+        <OurServises />
+      </section>
+      <section className="w-[100vw] bg-black relative  overflow-x-hidden">
+        {/* CTA - 1 */}
+
+        <CTA_1 />
+      </section>
       <section className="w-[100vw] flex flex-col gap-5 bg-[#36454F]/30">
         {/* LATEST WORKS */}
-        <p className="font-medium text-xl text-white w-[80vw] mx-auto mt-10">
-          Some Latest Works
-        </p>
         <CarousalSection />
       </section>
-
-      <section className="w-[80vw] mx-auto items-center justify-center my-10">
-        {/* ABOUT US */}
-        <p className="font-medium text-xl text-white">What We Do</p>
+      <section className="w-[100vw] mx-auto items-center justify-center">
+        {/* WHAT WE DO */}
         <WhatWeDo />
       </section>
-
-      {/* TESTIMONIALS */}
-      {/* <section className="w-[100vw] h-[100vh] bg-yellow-100">
-        TESTIMONIALS
-      </section> */}
-
-      <section className="w-[100vw] flex flex-col gap-5 bg-[#36454F]/30">
+      <section className="w-[100vw] flex flex-col gap-5 bg-gray-50 py-8">
         {/* CONTACT FORM */}
-        <p className="font-medium text-xl text-white w-[80vw] mx-auto mt-10">
-          Contact Us
-        </p>
-        <ContactUs />
-      </section>
+        <Title> Contact us</Title>
 
-      {/* FOOTER */}
-      {/* <footer className="w-[100vw] h-[20vh] bg-yellow-100">
-        FOOTER SECTIONS
-      </footer> */}
+        <div className="w-[90vw] sm:w-[50vw] mx-auto p-5 bg-white rounded-lg shadow-xl">
+          <ContactUs inHeroSection />
+        </div>
+      </section>
     </main>
   );
 }

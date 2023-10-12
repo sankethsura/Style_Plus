@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import Title from "../UI/Title";
+import Title2 from "../UI/Title2";
 
 export default function WhatWeDo() {
   const [infos, setInfos] = useState([
@@ -49,17 +51,21 @@ export default function WhatWeDo() {
   }, []);
 
   return (
-    <div className="flex flex-col sm:flex-row gap-5 mt-5">
-      {infos &&
-        infos?.map((item, index) => (
-          <div
-            key={index}
-            className="flex flex-col items-center justify-center gap-5 border border-gray-600 p-5 rounded-md"
-          >
-            <p className="font-medium text-xl text-white">{item.title}</p>
-            <p className="text-gray-400 text-center">{item.description}</p>
-          </div>
-        ))}
-    </div>
+    <section className="w-full flex flex-col gap-5 py-8 bg-gray-100">
+      <Title>What We Do</Title>
+
+      <div className="flex flex-col sm:flex-row gap-5 mt-5 sm:w-[90vw] w-[75vw] mx-auto">
+        {infos &&
+          infos?.map((item, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center justify-center gap-5 border border-gray-600 p-5 rounded-md"
+            >
+              <Title2 className="font-medium text-xl ">{item.title}</Title2>
+              <p className="text-gray-400 text-center">{item.description}</p>
+            </div>
+          ))}
+      </div>
+    </section>
   );
 }

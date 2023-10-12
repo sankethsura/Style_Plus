@@ -37,11 +37,9 @@ const CarouselComponent = ({
   };
 
   return (
-    <div className="carousel-container relative mx-auto max-w-screen-lg px-4 py-8">
+    <div className="carousel-container relative mx-auto max-w-screen-lg ">
       <Slider
         {...settings}
-        // nextArrow={<CustomNextArrow />}
-        // prevArrow={<CustomPrevArrow />}
       >
         {images.map((image, index) => (
           <div key={index} className="w-full px-2">
@@ -54,11 +52,7 @@ const CarouselComponent = ({
                 } object-cover rounded-md mb-4`}
               />
               <h2 className="text-lg font-semibold text-white">Image Title</h2>
-              {!noText ? (
-                <p className="text-gray-600 ">Image Subtitle</p>
-              ) : (
-                ""
-              )}
+              {!noText ? <p className="text-gray-600 ">Image Subtitle</p> : ""}
             </div>
           </div>
         ))}
